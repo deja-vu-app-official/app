@@ -1,46 +1,113 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, FlatList} from 'react-native';
+import {Platform, StyleSheet, Text, View, FlatList, Image} from 'react-native';
 import {API_TOKEN} from '@env'
- 
+
+const styles = StyleSheet.create({
+  highlightImage: {
+    width: '100%',
+  },
+  highlightBanner: {
+    width: '100%',
+    height: 500,
+  },
+  highlightText: {
+    width: '100%',
+    height: 500,
+    position: 'absolute',
+    zIndex: 2
+  },
+  cardImage: {
+    width: '10%',
+    height: 100
+  }
+});
+
 export default class App extends Component {
   
   constructor(props) {
     super(props);
     this.state = {
-      dataSource:[]
+      highlightDataName:[],
+      highlightDataBanner:[],
+      placesData:[],
      };
    }
  
   componentDidMount(){
-    fetch("https://deja-vu-api.herokuapp.com/api/places",{
+    let HighlightRequest = "https://deja-vu-api.herokuapp.com/api/highlights?populate=*"
+    let PlacesRequest = "https://deja-vu-api.herokuapp.com/api/places?populate=*"
+    fetch(HighlightRequest,{
       method: 'get',
       headers: new Headers({
         'Authorization': `Bearer ${API_TOKEN}`, 
       }),  
-    })
-    .then(response => response.json())
-    .then((responseJson)=> {
-      this.setState({
-       dataSource: responseJson.data
-      })
-    })
-    .catch(error=>console.log(error)) //to catch the errors if any
-    }
+    }).then((response) => response.json()).then((responseData)  => {
+      let response = responseData.data[0].attributes
+      let highlightId = null
+      let highlightType = null
+      if(response.track.data){
+        highlightId = response.track.data.id
+        highlightType = 'tracks'
+      }else if(response.universe.data){
+        highlightId = response.universe.data.id
+        highlightType = 'universes'
+      }else{
+        highlightId = response.place.data.id
+        highlightType = 'places'
+      }
+      fetch(`https://deja-vu-api.herokuapp.com/api/${highlightType}/${highlightId}?populate=*`,{
+        method: 'get',
+        headers: new Headers({
+          'Authorization': `Bearer ${API_TOKEN}`, 
+        }), 
+      }).then((response) => response.json()).then((responseData) => {
+        let highlight = responseData.data.attributes
+        this.setState({
+          highlightDataName: highlight.name,
+          highlightDataBanner: highlight.banner.data.attributes
+        });
+      }).catch(error=>console.log(error)) //to catch the errors if any
+    }).then(()=>{
+      fetch(PlacesRequest,{
+        method: 'get',
+        headers: new Headers({
+          'Authorization': `Bearer ${API_TOKEN}`, 
+        }),  
+      }).then((response) => response.json()).then((responseData) => {
+        let places = []
+        for (const el of responseData.data) {
+          let place = {
+            name: el.attributes.name,
+            url: el.attributes.images.data[0].attributes.url,
+          }
+          places.push(place);
+        }
+        this.setState({
+          placesData: places
+        })
+      }).catch(error=>console.log(error)) //to catch the errors if any
+    }).catch(error=>console.log(error)) //to catch the errors if any
+  }
  
-    render(){
-     return(
-      <View style={{padding:10}}>
+  render(){
+    return(
+      <View style={{ margin: 0 }}>
+        <View style={styles.highlightBanner}>
+          <Text style={styles.highlightText}>{this.state.highlightDataName}</Text>
+          <Image style={styles.highlightImage} source={{uri: this.state.highlightDataBanner.url, height: 500}}/>
+        </View>
       <FlatList
       padding ={30}
-         data={this.state.dataSource}
-         renderItem={({item}) => 
-         <View style={{height: 50}}>
-          <Text style={{height: 50}}>{item.attributes.city}, {item.attributes.address}</Text>
-          <View style={{height: 1,backgroundColor:'gray'}}></View>
-         </View>
-        }
-       />
-      
-     </View>
-     )}
+        data={this.state.placesData}
+        renderItem={({item}) => 
+        <View style={{height: 300}}>
+        <Text style={{height: 130}}>{item.name}</Text>
+        <Image style={styles.cardImage} source={{uri: item.url, height: 200}}/>
+        <View style={{height: 1,backgroundColor:'gray'}}></View>
+        </View>
+      }
+      />
+    
+    </View>
+    )}
 }
