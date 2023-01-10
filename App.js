@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, FlatList, Image} from 'react-native';
-import {API_TOKEN} from '@env'
+import {StyleSheet, View} from 'react-native';
+import {MD3LightTheme as DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
+import {API_TOKEN} from '@env';
+import NavBar from './components/NavBar.js';
+import Highlight from './components/Highlight.js';
+import HomeTable from './components/HomeTable.js';
+import { NavigationContainer } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
   highlightImage: {
@@ -22,92 +27,25 @@ const styles = StyleSheet.create({
   }
 });
 
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'tomato',
+    secondary: 'yellow',
+  },
+};
+
 export default class App extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      highlightDataName:[],
-      highlightDataBanner:[],
-      placesData:[],
-     };
-   }
- 
-  componentDidMount(){
-    let HighlightRequest = "https://deja-vu-api.herokuapp.com/api/highlights?populate=*"
-    let PlacesRequest = "https://deja-vu-api.herokuapp.com/api/places?populate=*"
-    fetch(HighlightRequest,{
-      method: 'get',
-      headers: new Headers({
-        'Authorization': `Bearer ${API_TOKEN}`, 
-      }),  
-    }).then((response) => response.json()).then((responseData)  => {
-      let response = responseData.data[0].attributes
-      let highlightId = null
-      let highlightType = null
-      if(response.track.data){
-        highlightId = response.track.data.id
-        highlightType = 'tracks'
-      }else if(response.universe.data){
-        highlightId = response.universe.data.id
-        highlightType = 'universes'
-      }else{
-        highlightId = response.place.data.id
-        highlightType = 'places'
-      }
-      fetch(`https://deja-vu-api.herokuapp.com/api/${highlightType}/${highlightId}?populate=*`,{
-        method: 'get',
-        headers: new Headers({
-          'Authorization': `Bearer ${API_TOKEN}`, 
-        }), 
-      }).then((response) => response.json()).then((responseData) => {
-        let highlight = responseData.data.attributes
-        this.setState({
-          highlightDataName: highlight.name,
-          highlightDataBanner: highlight.banner.data.attributes
-        });
-      }).catch(error=>console.log(error)) //to catch the errors if any
-    }).then(()=>{
-      fetch(PlacesRequest,{
-        method: 'get',
-        headers: new Headers({
-          'Authorization': `Bearer ${API_TOKEN}`, 
-        }),  
-      }).then((response) => response.json()).then((responseData) => {
-        let places = []
-        for (const el of responseData.data) {
-          let place = {
-            name: el.attributes.name,
-            url: el.attributes.images.data[0].attributes.url,
-          }
-          places.push(place);
-        }
-        this.setState({
-          placesData: places
-        })
-      }).catch(error=>console.log(error)) //to catch the errors if any
-    }).catch(error=>console.log(error)) //to catch the errors if any
-  }
  
   render(){
     return(
-      <View style={{ margin: 0 }}>
-        <View style={styles.highlightBanner}>
-          <Text style={styles.highlightText}>{this.state.highlightDataName}</Text>
-          <Image style={styles.highlightImage} source={{uri: this.state.highlightDataBanner.url, height: 500}}/>
+      <PaperProvider theme={theme}>
+        <View style={{ margin: 0 }}>
+          <Highlight/>
+          <HomeTable/>
+        <NavBar/>
         </View>
-      <FlatList
-      padding ={30}
-        data={this.state.placesData}
-        renderItem={({item}) => 
-        <View style={{height: 300}}>
-        <Text style={{height: 130}}>{item.name}</Text>
-        <Image style={styles.cardImage} source={{uri: item.url, height: 200}}/>
-        <View style={{height: 1,backgroundColor:'gray'}}></View>
-        </View>
-      }
-      />
-    
-    </View>
+      </PaperProvider>
     )}
 }
