@@ -3,12 +3,14 @@ import { StyleSheet } from 'react-native';
 import { Appbar, useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { flex } from 'styled-system';
+import { useNavigation } from '@react-navigation/native';
 
 const BOTTOM_APPBAR_HEIGHT = 80;
 
 const NavBar = () => {
   const { bottom } = useSafeAreaInsets();
   const theme = useTheme();
+  const navigation = useNavigation();
 
   return (
     <Appbar
@@ -21,8 +23,8 @@ const NavBar = () => {
       ]}
       safeAreaInsets={{ bottom }}
     >
-      <Appbar.Action icon={require('../assets/icons/Icon ionic-md-home.svg')} onPress={() => {}} />
-      <Appbar.Action icon={require('../assets/icons/Icon ionic-ios-star-full.svg')} onPress={() => {}} />
+      <Appbar.Action icon={require('../assets/icons/Icon ionic-md-home.svg')} onPress={() => navigation.navigate('Home')} />
+      <Appbar.Action icon={require('../assets/icons/Icon ionic-ios-star-full.svg')} onPress={() => navigation.navigate('Details')} />
       <Appbar.Action icon={require('../assets/icons/Icon metro-map.svg')} onPress={() => {}} />
       <Appbar.Action icon={require('../assets/icons/Icon ionic-md-download.svg')} onPress={() => {}} />
     </Appbar>
