@@ -41,8 +41,8 @@ class HomeTable extends Component {
             let places = []
             for (const el of responseData.data) {
                 let place = {
-                name: el.attributes.name,
-                url: el.attributes.images.data[0].attributes.url,
+                    name: el.attributes.name,
+                    url: el.attributes.images.data[0].attributes.url,
                 }
                 places.push(place);
             }

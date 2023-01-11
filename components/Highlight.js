@@ -43,26 +43,26 @@ class Highlight extends Component {
             let highlightId = null
             let highlightType = null
             if(response.track.data){
-            highlightId = response.track.data.id
-            highlightType = 'tracks'
+                highlightId = response.track.data.id
+                highlightType = 'tracks'
             }else if(response.universe.data){
-            highlightId = response.universe.data.id
-            highlightType = 'universes'
+                highlightId = response.universe.data.id
+                highlightType = 'universes'
             }else{
-            highlightId = response.place.data.id
-            highlightType = 'places'
+                highlightId = response.place.data.id
+                highlightType = 'places'
             }
             fetch(`https://deja-vu-api.herokuapp.com/api/${highlightType}/${highlightId}?populate=*`,{
-            method: 'get',
-            headers: new Headers({
-                'Authorization': `Bearer ${API_TOKEN}`, 
-            }), 
+                method: 'get',
+                headers: new Headers({
+                    'Authorization': `Bearer ${API_TOKEN}`, 
+                }), 
             }).then((response) => response.json()).then((responseData) => {
-            let highlight = responseData.data.attributes
-            this.setState({
-                highlightDataName: highlight.name,
-                highlightDataBanner: highlight.banner.data.attributes
-            });
+                let highlight = responseData.data.attributes
+                this.setState({
+                    highlightDataName: highlight.name,
+                    highlightDataBanner: highlight.banner.data.attributes
+                });
             }).catch(error=>console.log(error)) //to catch the errors if any
         }).catch(error=>console.log(error)) //to catch the errors if any
     }

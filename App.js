@@ -5,6 +5,7 @@ import NavBar from './components/NavBar.js';
 import Highlight from './components/Highlight.js';
 import HomeTable from './components/HomeTable.js';
 import Header from './components/Header.js';
+import FavTable from './components/Favorites.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -50,13 +51,15 @@ function HomeScreen() {
   );
 }
 
-function DetailsScreen() {
+function FavoritScreen() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Header/>
-      <Text>Details Screen</Text>
-      <NavBar/>
-    </View>
+    <PaperProvider theme={theme}>
+      <View style={{ margin: 0 }}>
+        <Header/>
+        <FavTable/>
+        <NavBar/>
+      </View>
+    </PaperProvider>
   );
 }
 
@@ -69,7 +72,7 @@ export default class App extends Component {
       <NavigationContainer>{
         <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Details" component={DetailsScreen} />
+          <Stack.Screen name="Details" component={FavoritScreen} />
         </Stack.Navigator>
       }</NavigationContainer>
     )}
