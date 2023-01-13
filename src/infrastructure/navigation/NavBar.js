@@ -23,10 +23,10 @@ const NavBar = () => {
       ]}
       safeAreaInsets={{ bottom }}
     >
-      <Appbar.Action icon={require('../assets/icons/Icon ionic-md-home.svg')} onPress={() => navigation.navigate('Home')} />
-      <Appbar.Action icon={require('../assets/icons/Icon ionic-ios-star-full.svg')} onPress={() => navigation.navigate('Details')} />
-      <Appbar.Action icon={require('../assets/icons/Icon metro-map.svg')} onPress={() => {}} />
-      <Appbar.Action icon={require('../assets/icons/Icon ionic-md-download.svg')} onPress={() => {}} />
+      <Appbar.Action icon={require('../../../assets/icons/Icon ionic-md-home.svg')} onPress={() => navigation.navigate('Home')} />
+      <Appbar.Action icon={require('../../../assets/icons/Icon ionic-ios-star-full.svg')} onPress={() => navigation.navigate('Favorites')} />
+      <Appbar.Action icon={require('../../../assets/icons/Icon metro-map.svg')} onPress={() => navigation.navigate('Map')} />
+      <Appbar.Action icon={require('../../../assets/icons/Icon ionic-md-download.svg')} onPress={() => navigation.navigate('Download')} />
     </Appbar>
   );
 };
@@ -34,7 +34,7 @@ const NavBar = () => {
 const styles = StyleSheet.create({
   bottom: {
     backgroundColor: 'gray',
-    position: 'absolute',
+    position: 'fixed',
     left: 0,
     right: 0,
     bottom: 0,

@@ -15,10 +15,6 @@ const styles = StyleSheet.create({
       height: 500,
       position: 'absolute',
       zIndex: 2
-    },
-    cardImage: {
-      width: '10%',
-      height: 100
     }
 });
 

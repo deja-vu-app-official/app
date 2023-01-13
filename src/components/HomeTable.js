@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image, FlatList} from 'react-native';
+import {StyleSheet, Text, View, Image, FlatList, TouchableHighlight} from 'react-native';
 import {API_TOKEN} from '@env';
 
 const styles = StyleSheet.create({
@@ -28,6 +28,7 @@ class HomeTable extends Component {
         this.state = {
             placesData:[],
         };
+        this.navigation = props.navigation;
     }
 
     componentDidMount(){
@@ -41,6 +42,7 @@ class HomeTable extends Component {
             let places = []
             for (const el of responseData.data) {
                 let place = {
+                    id: el.attributes.id,
                     name: el.attributes.name,
                     url: el.attributes.images.data[0].attributes.url,
                 }
@@ -56,11 +58,17 @@ class HomeTable extends Component {
             <FlatList padding ={30}
                 data={this.state.placesData}
                 renderItem={({item}) => 
-                <View style={{height: 300}}>
-                <Text style={{height: 130}}>{item.name}</Text>
-                <Image style={styles.cardImage} source={{uri: item.url, height: 200}}/>
-                <View style={{height: 1,backgroundColor:'gray'}}></View>
-                </View>
+                <TouchableHighlight  style={{height: 300}} onPress={() =>
+                        this.navigation.navigate('Place', {
+                            placeId: item.id,
+                        })
+                    }>
+                    <View>
+                        <Text style={{height: 130}}>{item.name}</Text>
+                        <Image style={styles.cardImage} source={{uri: item.url, height: 200}}/>
+                        <View style={{height: 1,backgroundColor:'gray'}}></View>
+                    </View>
+                </TouchableHighlight >
             }/>
         );
     }
