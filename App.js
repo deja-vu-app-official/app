@@ -1,102 +1,39 @@
-import React, {Component} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
-import {MD3LightTheme as DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
-import NavBar from './src/infrastructure/navigation/NavBar.js';
-import Highlight from './src/components/Highlight.js';
-import HomeTable from './src/components/HomeTable.js';
-import Header from './src/components/Header.js';
-import FavTable from './src/components/Favorites.js';
-import Map from './src/components/Map.js';
-import Download from './src/components/Download.js';
-import Place from './src/components/Place.js';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useNavigation } from '@react-navigation/native';
+import React from 'react'
+import { StyleSheet, Text, SafeAreaView, StatusBar } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { useFonts } from 'expo-font'
+import Home from '@screens/Home'
+import { Colors } from '@utils/Theme'
 
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: 'tomato',
-    secondary: 'yellow',
-  },
-};
+const Stack = createNativeStackNavigator()
 
-function HomeScreen() {
-  return (
-    <PaperProvider theme={theme}>
-      <View style={{ margin: 0 }}>
-        <Header/>
-        <Highlight/>
-        <HomeTable navigation={useNavigation()}/>
-        <NavBar/>
-      </View>
-    </PaperProvider>
-  );
+const GLOBAL_OPTIONS = {
+  headerShown: false,
 }
 
-function FavoritScreen() {
+export default function App() {
+  const [fontsLoaded] = useFonts({
+    CaviarDreams: require('./assets/fonts/CaviarDreams/CaviarDreams-Bold.ttf'),
+    Inter: require('./assets/fonts/Inter/Inter-Regular.ttf'),
+    'Inter-Bold': require('./assets/fonts/Inter/Inter-Bold.ttf'),
+  })
+
+  if (!fontsLoaded) {
+    return null
+  }
+
   return (
-    <PaperProvider theme={theme}>
-      <View style={{ margin: 0 }}>
-        <Header/>
-        <FavTable/>
-        <NavBar/>
-      </View>
-    </PaperProvider>
-  );
-}
-
-function MapScreen() {
-  return (
-    <PaperProvider theme={theme}>
-      <View style={{ margin: 0 }}>
-        <Header/>
-        <Map/>
-        <NavBar/>
-      </View>
-    </PaperProvider>
-  );
-}
-
-function DownloadScreen() {
-  return (
-    <PaperProvider theme={theme}>
-      <View style={{ margin: 0 }}>
-        <Header/>
-        <Download/>
-        <NavBar/>
-      </View>
-    </PaperProvider>
-  );
-}
-
-function PlaceScreen() {
-  return (
-    <PaperProvider theme={theme}>
-      <View style={{ margin: 0 }}>
-        <Header/>
-        <Place navigation={useNavigation()}/>
-        <NavBar/>
-      </View>
-    </PaperProvider>
-  );
-}
-
-const Stack = createNativeStackNavigator();
-
-export default class App extends Component {
- 
-  render(){
-    return(
-      <NavigationContainer>{
-        <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Favorites" component={FavoritScreen} />
-          <Stack.Screen name="Map" component={MapScreen} />
-          <Stack.Screen name="Download" component={DownloadScreen} />
-          <Stack.Screen name="Place" component={PlaceScreen} />
+    <SafeAreaView style={{ backgroundColor: Colors.black, flex: 1 }}>
+      <StatusBar barStyle={'light-content'} backgroundColor={Colors.black} />
+      <NavigationContainer style={{ backgroundColor: Colors.black }}>
+        <Stack.Navigator
+          initialRouteName="Home"
+          style={{ backgroundColor: Colors.black }}
+        >
+          <Stack.Screen name="Home" component={Home} options={GLOBAL_OPTIONS} />
         </Stack.Navigator>
-      }</NavigationContainer>
-    )}
+      </NavigationContainer>
+    </SafeAreaView>
+  )
 }
