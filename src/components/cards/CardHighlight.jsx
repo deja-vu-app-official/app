@@ -2,6 +2,7 @@ import { View, Text, Image, StyleSheet } from 'react-native'
 import { Colors, Fonts } from '@utils/Theme'
 import Overlay from '@components/shared/Overlay'
 import Button from '@components/shared/Button'
+import Like from '@components/shared/Like'
 
 const styles = StyleSheet.create({
   card: {
@@ -47,6 +48,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 20,
   },
+  actions: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 })
 
 export default ({ title, text, price, id }) => {
@@ -58,7 +64,16 @@ export default ({ title, text, price, id }) => {
         <Text style={styles.text}>{text}</Text>
         <View style={styles.priceContainer}>
           <Text style={styles.price}>{`${price}€`}</Text>
-          <Button onPress={() => {}}>Acheter</Button>
+          <View style={styles.actions}>
+            <Button onPress={() => {}}>Acheter</Button>
+            <Like
+              style={{ marginLeft: 5 }}
+              size={30}
+              isSelected={false}
+              color={Colors.gold}
+              onClick={(selected) => alert(selected)}
+            />
+          </View>
         </View>
       </View>
 
