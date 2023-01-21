@@ -13,3 +13,7 @@ web-build/
 
 # macOS
 .DS_Store
+
+.prettierignore
+
+.prettierrc.json
