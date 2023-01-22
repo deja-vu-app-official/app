@@ -18,6 +18,10 @@ module.exports = {
         inter: ['Inter'],
         interBold: ['Inter-Bold'],
       },
+      aspectRatio: {
+        picture: '4 / 3',
+        portrait: '2 / 3',
+      },
     },
   },
   plugins: [],
