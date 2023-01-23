@@ -1,0 +1,60 @@
+import axios from 'axios';
+import {API_TOKEN, API_URL, APP_ENV} from '@env';
+
+const AuthStr = 'Bearer '.concat(API_TOKEN); 
+
+const getUser = (userId) => {  
+  axios.get(`${API_URL}/users/${userId}?populate=*`, { headers: { Authorization: AuthStr } }).then((response) => {
+    if(APP_ENV === 'DEV'){
+      console.log(response.data[0]);
+    }
+    return response.data[0]
+  });
+};
+
+
+const getFavorites = (userId) => {
+  const user = getUser(userId)
+    let favorites = [];
+    for (const el of user.favorites) {
+      axios.get(`${API_URL}/favorites/${el.id}?populate=*`, { headers: { Authorization: AuthStr } }).then((response) => {
+
+        let response = response.data[0]
+        let favoriteId = null
+        let favoriteType = null
+        
+        if(APP_ENV === 'DEV'){
+          console.log(favorite, favoriteId, favoriteType);
+        }
+
+        if(response.track.data){
+            favoriteId = response.track.data.id
+            favoriteType = 'tracks'
+        }else if(response.universe.data){
+            favoriteId = response.universe.data.id
+            favoriteType = 'universes'
+        }else{
+            favoriteId = response.place.data.id
+            favoriteType = 'places'
+        }
+
+        axios.get(`${API_URL}/${favoriteType}/${favoriteId}?populate=*`, { headers: { Authorization: AuthStr } }).then((response) => {
+          let favorite = [
+            'type' = favoriteType,
+            'data' = response.data[0]
+          ]
+          favorites.push(favorite)
+        });
+      });
+    }
+
+    if(APP_ENV === 'DEV'){
+      console.log(favorites);
+    }
+    return favorites
+};
+
+export {
+  getUser,
+  getFavorites
+}
