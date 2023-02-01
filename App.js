@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useFonts } from 'expo-font'
 import Home from '@screens/Home'
+import Map from '@screens/Map'
 import { Colors } from '@utils/Theme'
 
 const Stack = createNativeStackNavigator()
@@ -32,6 +33,7 @@ export default function App() {
           style={{ backgroundColor: Colors.black }}
         >
           <Stack.Screen name="Home" component={Home} options={GLOBAL_OPTIONS} />
+          <Stack.Screen name="Map" component={Map} options={GLOBAL_OPTIONS} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
