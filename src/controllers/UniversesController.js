@@ -12,12 +12,12 @@ const getUniverse = (universeId) => {
   });
 };
 
-const getUniverses = () => {  
+const getUniverses = (limit) => {  
   axios.get(`${API_URL}/universes?populate`, { headers: { Authorization: AuthStr } }).then((response) => {
     if(APP_ENV === 'DEV'){
       console.log(response.data);
     }
-    return response.data
+    return limit ? response.data.slice(0, limit) : response.data
   });
 };
 

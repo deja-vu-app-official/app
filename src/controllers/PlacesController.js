@@ -21,7 +21,17 @@ const getPlaces = () => {
   });
 };
 
+const getTopPlaces = () => {  
+  axios.get(`${API_URL}/places?populate=*`, { headers: { Authorization: AuthStr } }).then((response) => {
+    if(APP_ENV === 'DEV'){
+      console.log(response.data);
+    }
+    return response.data
+  });
+};
+
 export {
   getPlace,
-  getPlaces
+  getPlaces,
+  getTopPlaces
 }

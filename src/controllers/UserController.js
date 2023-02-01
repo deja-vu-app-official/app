@@ -20,28 +20,28 @@ const getFavorites = (userId) => {
       axios.get(`${API_URL}/favorites/${el.id}?populate=*`, { headers: { Authorization: AuthStr } }).then((response) => {
 
         let response = response.data[0]
-        let favoriteId = null
         let favoriteType = null
-        
-        if(APP_ENV === 'DEV'){
-          console.log(favorite, favoriteId, favoriteType);
-        }
+        let favoriteId = null
 
         if(response.track.data){
-            favoriteId = response.track.data.id
-            favoriteType = 'tracks'
-        }else if(response.universe.data){
-            favoriteId = response.universe.data.id
-            favoriteType = 'universes'
+          let favoriteType = 'tracks'
+          let favoriteId = response.track.data[0].id
         }else{
-            favoriteId = response.place.data.id
-            favoriteType = 'places'
+          let favoriteType = 'places'
+          let favoriteId = response.track.data[0].id
         }
 
         axios.get(`${API_URL}/${favoriteType}/${favoriteId}?populate=*`, { headers: { Authorization: AuthStr } }).then((response) => {
+          let data = response.data[0];
+          let attributes = data.attributes
           let favorite = [
-            'type' = favoriteType,
-            'data' = response.data[0]
+            'type' = favoriteType === 'tracks' ? 'Circuit' : 'Lieu',
+            'price' = attributes.price,
+            'rating' = attributes.rating,
+            'title' = attributes.name,
+            'description' = attributes.description,
+            'image' = attributes.image.formats.large.url,
+            'id' = data.id
           ]
           favorites.push(favorite)
         });
