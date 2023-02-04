@@ -6,6 +6,8 @@ import { useFonts } from 'expo-font'
 import Home from '@screens/Home'
 import Map from '@screens/Map'
 import { Colors } from '@utils/Theme'
+import Footer from '@components/global/Footer'
+import Header from '@components/global/Header'
 
 const Stack = createNativeStackNavigator()
 
@@ -26,8 +28,13 @@ export default function App() {
 
   return (
     <SafeAreaView style={{ backgroundColor: Colors.black, flex: 1 }}>
-      <StatusBar barStyle={'light-content'} backgroundColor={Colors.black} />
+      <StatusBar
+        barStyle={'light-content'}
+        translucent={true}
+        backgroundColor="transparent"
+      />
       <NavigationContainer style={{ backgroundColor: Colors.black }}>
+        <Header />
         <Stack.Navigator
           initialRouteName="Home"
           style={{ backgroundColor: Colors.black }}
@@ -35,6 +42,7 @@ export default function App() {
           <Stack.Screen name="Home" component={Home} options={GLOBAL_OPTIONS} />
           <Stack.Screen name="Map" component={Map} options={GLOBAL_OPTIONS} />
         </Stack.Navigator>
+        <Footer />
       </NavigationContainer>
     </SafeAreaView>
   )

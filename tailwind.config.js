@@ -8,6 +8,7 @@ module.exports = {
         gold_light: '#EFD6AC',
         background: '#16171A',
         backgroundLight: '#2A2C30',
+        backgroundTransparent: 'rgba(24, 24, 26, 1)',
         secondary: '#AE89CE',
         secondaryLight: '#AE89CE',
         white: '#FFF',
