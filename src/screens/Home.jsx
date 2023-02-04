@@ -8,7 +8,7 @@ import CardTop from '@components/cards/CardTop'
 import ScrollHorizontal from '@components/shared/ScrollHorizontal'
 import CardGenre from '@components/cards/CardGenre'
 import CardUniver from '@components/cards/CardUniver'
-import getGenres from '@controllers/GenreController'
+import getGenres from '@controllers/GenreController.js'
 import { getHighlight, getNews } from '@controllers/HighlightController'
 import { getPlace, getPlaces, getTopPlaces } from '@controllers/PlacesController'
 import { getTrack, getTracks, getTopTracks } from '@controllers/TracksController'
@@ -155,10 +155,37 @@ function getData() {
         icon: 'clapperboard',
       },
     ],
-    favoris: getFavorites(1), //todo send the real user id
-    nouveautes: getNews(),
-    topCircuit: [
+    favoris: [
       {
+        type: 'Ciruit',
+        price: 15,
+        rating: 4,
+        title: 'Inception Tour',
+        image: 'https://picsum.photos/700',
+        id: 1,
+      },
+      {
+        type: 'Lieux',
+        price: 0.98,
+        rating: 5,
+        title: 'Lucy',
+        description: 'Scène course poursuite',
+        image: 'https://picsum.photos/700',
+        id: 2,
+      },
+      {
+        type: 'Ciruit',
+        price: 10,
+        rating: 3,
+        title: 'Neuilly',
+        description: '',
+        image: 'https://picsum.photos/700',
+        id: 3,
+      },
+    ],
+    nouveautes: [
+      {
+        type: 'Lieux',
         price: 15,
         rating: 3,
         title: 'Amélie Poulin',
@@ -167,6 +194,36 @@ function getData() {
         id: 1,
       },
       {
+        type: 'Circuit',
+        price: 0.98,
+        rating: 5,
+        title: 'Da Vinci Code',
+        description: 'Paris',
+        image: 'https://picsum.photos/700',
+        id: 2,
+      },
+      {
+        type: 'Ciruit',
+        price: 10,
+        rating: 3,
+        title: 'La Grande Vadrouille',
+        description: '',
+        image: 'https://picsum.photos/700',
+        id: 3,
+      },
+    ],
+    topCircuit: [
+      {
+        type: 'Lieux',
+        price: 15,
+        rating: 3,
+        title: 'Amélie Poulin',
+        description: 'Scène lieu travail',
+        image: 'https://picsum.photos/700',
+        id: 1,
+      },
+      {
+        type: 'Circuit',
         price: 0.98,
         rating: 5,
         title: 'Da Vinci Code',
@@ -184,6 +241,7 @@ function getData() {
         id: 3,
       },
       {
+        type: 'Ciruit',
         price: 10,
         rating: 3,
         title: 'La Grande Vadrouille',
@@ -192,10 +250,21 @@ function getData() {
         id: 3,
       },
     ],
-    genres: getGenres(),
-    univers: getUniverses(4),
+    genres: [
+      { title: 'fantastique', id: 1 },
+      { title: 'romance', id: 2 },
+      { title: 'action', id: 3 },
+      { title: 'comedie', id: 3 },
+    ],
+    univers: [
+      { title: 'da vinci code', id: 1, image: 'https://picsum.photos/700' },
+      { title: 'inception', id: 2, image: 'https://picsum.photos/700' },
+      { title: 'Harry Potter', id: 3, image: 'https://picsum.photos/700' },
+      { title: 'Lord of the rings', id: 4, image: 'https://picsum.photos/700' },
+    ],
     topLieux: [
       {
+        type: 'Lieux',
         price: 15,
         rating: 3,
         title: 'Amélie Poulin',
@@ -204,6 +273,7 @@ function getData() {
         id: 1,
       },
       {
+        type: 'Circuit',
         price: 0.98,
         rating: 5,
         title: 'Da Vinci Code',
@@ -212,6 +282,7 @@ function getData() {
         id: 2,
       },
       {
+        type: 'Ciruit',
         price: 10,
         rating: 3,
         title: 'La Grande Vadrouille',
@@ -220,6 +291,7 @@ function getData() {
         id: 3,
       },
       {
+        type: 'Ciruit',
         price: 10,
         rating: 3,
         title: 'La Grande Vadrouille',

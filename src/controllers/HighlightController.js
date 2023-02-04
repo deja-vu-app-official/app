@@ -6,7 +6,7 @@ const AuthStr = 'Bearer '.concat(API_TOKEN);
 const getHighlight = () => {  
   axios.get(`${API_URL}/highlights?populate=*`, { headers: { Authorization: AuthStr } }).then((response) => {
 
-    let response = response.data[0]
+    response = response.data[0]
     let highlight = []
     let highlightId = null
     let highlightType = null
@@ -22,15 +22,12 @@ const getHighlight = () => {
         highlightType = 'places'
     }
     axios.get(`${API_URL}/${highlightType}/${highlightId}?populate=*`, { headers: { Authorization: AuthStr } }).then((response) => {
-      highlight = [
-        'type' = highlightType,
-        'data' = response.data[0]
-      ]
+      highlight = {
+        'type' : highlightType,
+        'data' : response.data[0]
+      }
     });
-    
-    if(APP_ENV === 'DEV'){
-      console.log(highlight);
-    }
+
     return highlight
   });
 };
@@ -65,22 +62,22 @@ const firstDayInGivenMonth = (month) => {
   var d = new Date();
   d.setDate(1);
   d.setMonth(d.getMonth() - month);
-  console.log(d);
+  return d
 };
 
-const pushInNews = (response, type) => { 
+const pushInNews = (response, type) => {
   let data = response.data[0];
   let attributes = data.attributes
-  let newItem = [
-    'type' = type,
-    'price' = attributes.price,
-    'rating' = attributes.rating,
-    'title' = attributes.name,
-    'description' = attributes.description,
-    'image' = attributes.image.formats.large.url,
-    'createdAt' = attributes.createdAt,
-    'id' = data.id
-  ]
+  let newItem = {
+    'type' : type,
+    'price' : attributes.price,
+    'rating' : attributes.rating,
+    'title' : attributes.name,
+    'description' : attributes.description,
+    'image' : attributes.image.formats.large.url,
+    'createdAt' : attributes.createdAt,
+    'id' : data.id
+  }
   return newItem
 }; 
 
