@@ -8,8 +8,6 @@ import CardTop from '@components/cards/CardTop'
 import ScrollHorizontal from '@components/shared/ScrollHorizontal'
 import CardGenre from '@components/cards/CardGenre'
 import CardUniver from '@components/cards/CardUniver'
-import Header from '@components/global/Header'
-import Footer from '@components/global/Footer'
 
 export default () => {
   const [data, setData] = useState(null)

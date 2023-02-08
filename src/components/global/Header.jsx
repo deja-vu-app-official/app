@@ -25,7 +25,7 @@ export default () => {
       </TouchableOpacity>
       <View className="flex-row gap-2">
         <TouchableOpacity onPress={() => alert('search')}>
-          <Search />
+          <Search className="text-gold" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => alert('search')}>
           <Image

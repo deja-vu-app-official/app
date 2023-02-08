@@ -198,9 +198,10 @@ export default () => {
             >
               <View>
                 <Location
-                  width={50}
-                  height={50}
-                  selected={current === marker}
+                  size={50}
+                  className={`${
+                    current === marker ? 'text-gold' : 'text-gold_light'
+                  }`}
                 />
               </View>
             </Marker>

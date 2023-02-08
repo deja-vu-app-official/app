@@ -16,7 +16,7 @@ export default ({ title, icon }) => {
 
   return (
     <TouchableOpacity className="w-[30%]">
-      <View className="p-4 bg-backgroundLight rounded-lg flex items-center place-content-center ">
+      <View className="p-4 bg-backgroundLight rounded-lg flex items-center">
         <Icon icon={icon} />
         <Text className="font-caviar text-gold mt-1">{title}</Text>
       </View>
