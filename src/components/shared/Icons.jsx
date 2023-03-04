@@ -4,17 +4,46 @@ import {
   FontAwesome5,
   MaterialCommunityIcons,
 } from '@expo/vector-icons'
+import { Image } from 'react-native'
+
+import BookIcon from '../../../assets/book_icon.png'
+import CameraIcon from '../../../assets/camera_icon.png'
+import ClapperboardIcon from '../../../assets/claquete_icon.png'
 
 export const Book = (props) => {
-  return <></>
+  const image = Image.resolveAssetSource(BookIcon).uri
+
+  return (
+    <Image
+      className="w-20"
+      style={{ width: 30, height: 30 }}
+      source={{ uri: image }}
+    />
+  )
 }
 
 export const Camera = (props) => {
-  return <></>
+  const image = Image.resolveAssetSource(CameraIcon).uri
+
+  return (
+    <Image
+      className="w-20"
+      style={{ width: 30, height: 30 }}
+      source={{ uri: image }}
+    />
+  )
 }
 
 export const Clapperboard = (props) => {
-  return <></>
+  const image = Image.resolveAssetSource(ClapperboardIcon).uri
+
+  return (
+    <Image
+      className="w-20"
+      style={{ width: 30, height: 30 }}
+      source={{ uri: image }}
+    />
+  )
 }
 
 export const Star = (props) => {

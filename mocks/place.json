@@ -1,0 +1,30 @@
+{
+  "type": "Lieux",
+  "price": 0.98,
+  "rating": 5,
+  "title": "Lucy",
+  "description": "Scène course poursuite",
+  "image": "https://picsum.photos/700",
+  "id": 2,
+  "coordinate": { "latitude": 46.89925, "longitude": 6.129394 },
+  "sceneDescription": {
+    "moment": "Moment du film: 38 min",
+    "description": "Tom Cruise est victime d’une course poursuite à moto avec la police, il se retrouve à contre sens sur la place de l’étoile."
+  },
+  "address": "Place Charles de Gaulle-Etoile, 75008 Paris",
+  "anecdotes": [
+    "Au dernier moment l’équipe de tournage à demandé l’autorisation d’utiliser la place de l’Étoile pour une course-poursuite où Tom Cruise remonte à moto, à contre-courant du flux de circulation sans casque. Pour que cela soit possible, le tournage a eu lieu tôt, dès 6 heures du matin, et 240 personnes bouclaient tous les accès à la place.",
+    "Le plus dur à été de garer chaque jour 100 camions de la production du film dans les rues de Paris.",
+    "Tom Cruise a remercié la préfecture de police de lui avoir permis de rouler à 120 km/h sans casque dans Paris.",
+    "Les équipes ont été en relation avec la Préfecture de police, la RATP, le ministère des Armées, les Voies navigables de France, mais aussi les mairies d'arrondissement et les riverains… pour raisons de sécurité, pour les séquences de poursuite, ils ont fait dévier des lignes de bus, démonter provisoirement des feux rouges, enlevé des dizaines et des dizaines de potelets le long des chaussées, avant de les remettre."
+  ],
+  "funFacts": [
+    "Tom Cruise réalise toutes ses cascades réellement. C'est le plus gros tournage qui ait jamais été réalisé à Paris, avec au total 36 jours de tournage."
+  ],
+  "sentences": [
+    "« Plus grande est la souffrance, plus grande est la peur ! »",
+    "« Combien de fois le gouvernement l'a-t-il trahi, renié et rejeté ? Combien de temps avant qu'un homme n'en est assez ? »",
+    "« t'as mis ta ceinture ? » [Ethan Hunt]",
+    "« C’est maintenant que tu me le demandes ? »"
+  ]
+}

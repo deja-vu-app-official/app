@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { TouchableOpacity, Text, View } from 'react-native'
 import { NavIcons } from '@components/shared/Icons'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 
 const navigationList = [
   {
@@ -25,13 +25,9 @@ export default () => {
   const [current, setCurrent] = useState('Home')
   const navigation = useNavigation()
 
-  const handleOnPress = (navigateTo) => {
-    setCurrent(navigateTo)
+  const handleOnPress = useCallback((navigateTo) => {
     navigation.navigate(navigateTo)
-  }
-
-  useEffect(() => {
-    console.log(current)
+    setCurrent(navigateTo)
   })
 
   return (

@@ -1,0 +1,165 @@
+{
+  "types": [
+    {
+      "title": "Livres",
+      "icon": "book"
+    },
+    {
+      "title": "Films",
+      "icon": "camera"
+    },
+    {
+      "title": "Séries",
+      "icon": "clapperboard"
+    }
+  ],
+  "favoris": [
+    {
+      "type": "Circuit",
+      "price": 15,
+      "rating": 4,
+      "title": "Inception Tour",
+      "image": "https://picsum.photos/700",
+      "id": 1
+    },
+    {
+      "type": "Lieux",
+      "price": 0.98,
+      "rating": 5,
+      "title": "Lucy",
+      "description": "Scène course poursuite",
+      "image": "https://picsum.photos/700",
+      "id": 2
+    },
+    {
+      "type": "Circuit",
+      "price": 10,
+      "rating": 3,
+      "title": "Neuilly",
+      "description": "",
+      "image": "https://picsum.photos/700",
+      "id": 3
+    }
+  ],
+  "nouveautes": [
+    {
+      "type": "Lieux",
+      "price": 15,
+      "rating": 3,
+      "title": "Amélie Poulin",
+      "description": "Scène lieu travail",
+      "image": "https://picsum.photos/700",
+      "id": 1
+    },
+    {
+      "type": "Circuit",
+      "price": 0.98,
+      "rating": 5,
+      "title": "Da Vinci Code",
+      "description": "Paris",
+      "image": "https://picsum.photos/700",
+      "id": 2
+    },
+    {
+      "type": "Circuit",
+      "price": 10,
+      "rating": 3,
+      "title": "La Grande Vadrouille",
+      "description": "",
+      "image": "https://picsum.photos/700",
+      "id": 3
+    }
+  ],
+  "topCircuit": [
+    {
+      "type": "Lieux",
+      "price": 15,
+      "rating": 3,
+      "title": "Amélie Poulin",
+      "description": "Scène lieu travail",
+      "image": "https://picsum.photos/700",
+      "id": 1
+    },
+    {
+      "type": "Circuit",
+      "price": 0.98,
+      "rating": 5,
+      "title": "Da Vinci Code",
+      "description": "Paris",
+      "image": "https://picsum.photos/700",
+      "id": 2
+    },
+    {
+      "type": "Circuit",
+      "price": 10,
+      "rating": 3,
+      "title": "La Grande Vadrouille",
+      "description": "",
+      "image": "https://picsum.photos/700",
+      "id": 3
+    },
+    {
+      "type": "Circuit",
+      "price": 10,
+      "rating": 3,
+      "title": "La Grande Vadrouille",
+      "description": "",
+      "image": "https://picsum.photos/700",
+      "id": 3
+    }
+  ],
+  "genres": [
+    { "title": "fantastique", "id": 1 },
+    { "title": "romance", "id": 2 },
+    { "title": "action", "id": 3 },
+    { "title": "comedie", "id": 3 }
+  ],
+  "univers": [
+    { "title": "da vinci code", "id": 1, "image": "https://picsum.photos/700" },
+    { "title": "inception", "id": 2, "image": "https://picsum.photos/700" },
+    { "title": "Harry Potter", "id": 3, "image": "https://picsum.photos/700" },
+    {
+      "title": "Lord of the rings",
+      "id": 4,
+      "image": "https://picsum.photos/700"
+    }
+  ],
+  "topLieux": [
+    {
+      "type": "Lieux",
+      "price": 15,
+      "rating": 3,
+      "title": "Amélie Poulin",
+      "description": "Scène lieu travail",
+      "image": "https://picsum.photos/700",
+      "id": 1
+    },
+    {
+      "type": "Circuit",
+      "price": 0.98,
+      "rating": 5,
+      "title": "Da Vinci Code",
+      "description": "Paris",
+      "image": "https://picsum.photos/700",
+      "id": 2
+    },
+    {
+      "type": "Circuit",
+      "price": 10,
+      "rating": 3,
+      "title": "La Grande Vadrouille",
+      "description": "",
+      "image": "https://picsum.photos/700",
+      "id": 3
+    },
+    {
+      "type": "Circuit",
+      "price": 10,
+      "rating": 3,
+      "title": "La Grande Vadrouille",
+      "description": "",
+      "image": "https://picsum.photos/700",
+      "id": 3
+    }
+  ]
+}

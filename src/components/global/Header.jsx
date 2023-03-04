@@ -14,7 +14,7 @@ export default () => {
   return (
     <View
       style={{ backgroundColor: 'rgba(24, 24, 26, 0.9)' }}
-      className="w-full px-4 pt-8 pb-2 absolute z-10 flex-row justify-between"
+      className="w-full px-4 py-2 absolute z-10 flex-row justify-between"
     >
       <TouchableOpacity onPress={() => handleOnPress('Home')}>
         <Image
@@ -24,10 +24,10 @@ export default () => {
         />
       </TouchableOpacity>
       <View className="flex-row gap-2">
-        <TouchableOpacity onPress={() => alert('search')}>
+        <TouchableOpacity onPress={() => handleOnPress('Search')}>
           <Search className="text-gold" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => alert('search')}>
+        <TouchableOpacity onPress={() => handleOnPress('Account')}>
           <Image
             className="aspect-square rounded-lg overflow-hidden h-[30]"
             source={{ uri: 'https://picsum.photos/700' }}
