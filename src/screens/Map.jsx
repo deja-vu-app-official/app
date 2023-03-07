@@ -46,7 +46,9 @@ export default () => {
                 <Location
                   size={50}
                   className={`${
-                    current === marker ? 'text-gold' : 'text-gold_light'
+                    current === marker
+                      ? 'text-gold scale-110'
+                      : 'text-gold_light scale-90'
                   }`}
                 />
               </View>
@@ -64,29 +66,4 @@ export default () => {
       )}
     </Layout>
   )
-}
-
-function getData() {
-  return [
-    {
-      type: 'Lieux',
-      price: 0.98,
-      rating: 5,
-      title: 'Lucy',
-      description: 'Scène course poursuite',
-      image: 'https://picsum.photos/700',
-      id: 2,
-      coordinate: { latitude: 45.899247, longitude: 6.129384 },
-    },
-    {
-      type: 'Circuit',
-      price: 0.98,
-      rating: 3,
-      title: 'Harry Potter',
-      description: 'Scène course poursuite',
-      image: 'https://picsum.photos/700',
-      id: 2,
-      coordinate: { latitude: 46.89925, longitude: 6.129394 },
-    },
-  ]
 }

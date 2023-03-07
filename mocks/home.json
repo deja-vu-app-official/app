@@ -72,7 +72,7 @@
   ],
   "topCircuit": [
     {
-      "type": "Lieux",
+      "type": "Circuit",
       "price": 15,
       "rating": 3,
       "title": "Amélie Poulin",

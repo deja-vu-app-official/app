@@ -6,13 +6,13 @@
   "description": "Scène course poursuite",
   "image": "https://picsum.photos/700",
   "id": 2,
-  "coordinate": { "latitude": 46.89925, "longitude": 6.129394 },
+  "locations": [{ "latitude": 46.79925, "longitude": 6.129394 }],
   "sceneDescription": {
     "moment": "Moment du film: 38 min",
     "description": "Tom Cruise est victime d’une course poursuite à moto avec la police, il se retrouve à contre sens sur la place de l’étoile."
   },
   "address": "Place Charles de Gaulle-Etoile, 75008 Paris",
-  "anecdotes": [
+  "annecdotes": [
     "Au dernier moment l’équipe de tournage à demandé l’autorisation d’utiliser la place de l’Étoile pour une course-poursuite où Tom Cruise remonte à moto, à contre-courant du flux de circulation sans casque. Pour que cela soit possible, le tournage a eu lieu tôt, dès 6 heures du matin, et 240 personnes bouclaient tous les accès à la place.",
     "Le plus dur à été de garer chaque jour 100 camions de la production du film dans les rues de Paris.",
     "Tom Cruise a remercié la préfecture de police de lui avoir permis de rouler à 120 km/h sans casque dans Paris.",

@@ -1,0 +1,72 @@
+{
+  "type": "Circuit",
+  "price": 0.98,
+  "rating": 5,
+  "title": "MISSION IMPOSSIBLE",
+  "description": "Mission Impossible 6 “Fallout” Tour ",
+  "image": "https://picsum.photos/700",
+  "id": 2,
+  "locations": [{ "latitude": 47.89925, "longitude": 6.129394 }],
+  "places": [
+    {
+      "type": "Lieux",
+      "price": 0.98,
+      "rating": 5,
+      "title": "Arc de triomphe",
+      "image": "https://picsum.photos/700",
+      "id": 2,
+      "description": "Ethan est poursuivi par la police française et passe devant l'Arc de triomphe de manière inhabituelle en roulant à contresens sur le fameux rond-point de l'Étoile, une chose inédite et interdite. Les lieux ont été privatisés pour un dimanche matin tôt pour le tournage. Il a fallu 70 véhicules pilotés par des cascadeurs professionnels pour réaliser cette séquence. Pour ajouter plus de complexité, elle devait être réalisée sans incident, car l'acteur principal ne portait aucune protection alors qu'il roulait à 180 km/h.",
+      "location": { "latitude": 48.89935, "longitude": 6.129394 },
+      "address": "Place Charles de Gaulle-Etoile, 75008 Paris"
+    },
+    {
+      "type": "Lieux",
+      "price": 0.98,
+      "rating": 5,
+      "title": "Avenue de Saxe",
+      "image": "https://picsum.photos/700",
+      "id": 2,
+      "description": "Ethan, joué par Tom Cruise, est en train de fuir la police lorsqu'il percute une Peugeot 406 grise à une intersection et tombe de sa moto. La scène prend des libertés avec la réalité géographique de Paris, car après avoir roulé à contresens sur le rond-point de l'Arc de triomphe, Tom Cruise se retrouve sur la rue de Téhéran, qui est à 1,5 km de là, alors que l'Arc de Triomphe n'est pas visible dans cette rue contrairement au film. Il continue ensuite sur l'avenue de Saxe, qui est 3 km plus loin. Après l'accident, il s'échappe par une bouche d'égout où ses complices l'attendent en bateau. Bien que Tom Cruise effectue lui-même ses cascades, celle-ci a nécessité un minimum d'équipements de sécurité, comme une grue pour réaliser le fameux vol plané.",
+      "location": { "latitude": 46.89925, "longitude": 6.329384 },
+      "address": "Place Charles de Gaulle-Etoile, 75008 Paris"
+    },
+    {
+      "type": "Lieux",
+      "price": 0.98,
+      "rating": 5,
+      "title": " Jardins du Palais-Royal",
+      "image": "https://picsum.photos/700",
+      "id": 2,
+      "description": "Ethan met en garde Isla Faust et lui demande de renoncer à sa mission lors d'une scène se déroulant dans des jardins où un tir de canon est déclenché chaque mercredi à midi. Cette tradition, qui était utilisée pour synchroniser les montres en fonction de la position du soleil, a été instaurée par un horloger de mai à octobre. Le canon original, installé en 1786, a été volé en 1998 et remplacé par une réplique. Depuis 2011, il n'est plus déclenché par le soleil mais par un artificier.",
+      "location": { "latitude": 46.89925, "longitude": 6.429374 },
+      "address": "Place Charles de Gaulle-Etoile, 75008 Paris"
+    },
+    {
+      "type": "Lieux",
+      "price": 0.98,
+      "rating": 5,
+      "title": "Parvis des droits de l’homme",
+      "image": "https://picsum.photos/700",
+      "id": 2,
+      "description": "Au lever du jour, alors que l'esplanade est déserte, August Walker informe la directrice de la CIA qu'il croit Ethan Hunt être John Lark. Le parvis des droits de l'homme offre une vue imprenable sur la Tour Eiffel. Il a été créé dans les années 1930 et a été nommé ainsi en 1985 en raison de son emplacement à côté du Palais de Chaillot où la Déclaration universelle des Droits de l'Homme a été adoptée le 10 décembre 1948 lors de la cinquième session de l'Assemblée générale des Nations Unies. L'article 1, 'Les hommes naissent et demeurent libres et égaux en droits' est gravé sur une plaque du parvis.",
+      "location": { "latitude": 46.89935, "longitude": 6.529394 },
+      "address": "Place Charles de Gaulle-Etoile, 75008 Paris"
+    },
+    {
+      "type": "Lieux",
+      "price": 0.98,
+      "rating": 5,
+      "title": "Grand Palais",
+      "image": "https://picsum.photos/700",
+      "id": 2,
+      "description": "Ethan et August se font passer pour des invités lors d'une fête de charité au Grand Palais pour intercepter la vente de plutonium que la Veuve blanche souhaite réaliser avec John Lark. Cependant, les choses ne se passent pas comme prévu et ils doivent fuir ensemble en présence de tueurs jusqu'à l'hôtel de Soubise où réside la jeune femme.",
+      "location": { "latitude": 47.89945, "longitude": 6.129384 },
+      "address": "Place Charles de Gaulle-Etoile, 75008 Paris"
+    }
+  ],
+  "circuitDescription": {
+    "moment": "durée circuit: 1 jour",
+    "description": "Embarquez pour une course poursuite á couper le souffle en plein cœur de paris, sur les traces d’Ethan."
+  },
+  "address": "5 lieux à découvrir "
+}
